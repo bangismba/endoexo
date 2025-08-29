@@ -27,7 +27,7 @@ export default function MarketOpportunity() {
   return (
     <section id="market" className="py-20 px-6 bg-gray-900 text-white">
       <h2 className="text-4xl font-bold text-center mb-12">Market Opportunity</h2>
-
+      <p className="text-center text-gray-300 max-w-3xl mx-auto mb-12">Massive RWA tokenisation market growth with untapped IP value</p>
       <motion.div 
         className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16"
         initial={{ opacity: 0, y: 20 }}

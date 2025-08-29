@@ -47,10 +47,10 @@ const services = [
 export default function ProductServices() {
   return (
     <section id="products" className="py-20 px-6 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
-      <h2 className="text-4xl font-extrabold text-center mb-12 tracking-wide">
+      <h2 className="text-4xl font-extrabold text-center mb-8 tracking-wide">
         Product & Services
       </h2>
-
+        <p className="text-center text-gray-300 max-w-3xl mx-auto mb-12">Seven integrated services creating a comprehensive IP ecosystem</p>
       {/* Main Services */}
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
         {services.map((item, i) => (
