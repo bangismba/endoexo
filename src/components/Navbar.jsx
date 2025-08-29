@@ -1,63 +1,77 @@
-import { useState } from "react";
+// src/components/Navbar.jsx
+import React, { useState } from "react";
+import { Link } from "react-scroll";
+import logo from "../assets/logo.jpg"; // Import logo image
 
-import { close, logo, menu } from "../assets";
-import { navLinks } from "../constants";
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
 
-const Navbar = () => {
-  const [active, setActive] = useState("Home");
-  const [toggle, setToggle] = useState(false);
+  const navLinks = [
+    { name: "Home", to: "hero" },
+    { name: "Problem", to: "problem" },
+    { name: "Solution", to: "solution" },
+    { name: "Market", to: "market" },
+    { name: "Product", to: "product" },
+    { name: "Business", to: "business" },
+    { name: "Traction", to: "traction" },
+    { name: "Competitive", to: "competitive" },
+    { name: "Financial", to: "financial" },
+    { name: "Funding", to: "funding" },
+  ];
 
   return (
-    <nav className="w-full flex py-6 justify-between items-center navbar">
-      <img src={logo} alt="hoobank" className="w-[124px] h-[32px]" />
+    <nav className="bg-gray-900 text-white fixed w-full z-50 shadow-md">
+      <div className="max-w-6xl mx-auto px-6 flex justify-between items-center h-16">
+        
+        {/* Logo */}
+        <div className="flex items-center cursor-pointer">
+          <img src={logo} alt="EndoExo Logo" className="h-10 w-10 rounded-full mr-2" />
+          <span className="text-xl font-bold">EndoExo</span>
+        </div>
 
-      <ul className="list-none sm:flex hidden justify-end items-center flex-1">
-        {navLinks.map((nav, index) => (
-          <li
-            key={nav.id}
-            className={`group font-poppins cursor-pointer text-[16px] ${
-              active === nav.title ? "text-secondary font-semibold" : "text-dimWhite font-regular"
-            } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
-            onClick={() => setActive(nav.title)}
+        {/* Desktop Links */}
+        <div className="hidden md:flex space-x-6">
+          {navLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              smooth={true}
+              duration={500}
+              className="cursor-pointer hover:text-blue-400 transition-colors duration-300"
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="focus:outline-none text-2xl"
           >
-            <a href={`#${nav.id}`}>{nav.title}</a>
-            <div
-              class="h-0.5 bg-secondary scale-x-0 group-hover:scale-100 transition-transform origin-left rounded-full duration-300 ease-out"
-            />
-          </li>
-        ))}
-      </ul>
-
-      <div className="sm:hidden flex flex-1 justify-end items-center">
-        <img
-          src={toggle ? close : menu}
-          alt="menu"
-          className="w-[28px] h-[28px] object-contain"
-          onClick={() => setToggle(!toggle)}
-        />
-
-        <div
-          className={`${
-            !toggle ? "hidden" : "flex"
-          } p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
-        >
-          <ul className="list-none flex justify-end items-start flex-1 flex-col">
-            {navLinks.map((nav, index) => (
-              <li
-                key={nav.id}
-                className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                  active === nav.title ? "text-white" : "text-dimWhite"
-                } ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
-                onClick={() => setActive(nav.title)}
-              >
-                <a href={`#${nav.id}`}>{nav.title}</a>
-              </li>
-            ))}
-          </ul>
+            {isOpen ? "✖" : "☰"}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden bg-gray-800 px-6 py-4 flex flex-col space-y-3">
+          {navLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              smooth={true}
+              duration={500}
+              className="cursor-pointer hover:text-blue-400 transition-colors duration-300"
+              onClick={() => setIsOpen(false)}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
+      )}
     </nav>
   );
-};
-
-export default Navbar;
+}
