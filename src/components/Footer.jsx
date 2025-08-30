@@ -21,7 +21,7 @@ export default function Footer() {
           <ul className="text-gray-400 space-y-1">
             <li>Email: <a href="mailto:info@endoxo.com" className="text-blue-500 hover:underline">info@endoxo.com</a></li>
             <li>Phone: <a href="tel:+1234567890" className="text-blue-500 hover:underline">+1 234 567 890</a></li>
-            <li>Address: 123 Blockchain St, London, UK</li>
+            <li>Address: awaiting address UK</li>
           </ul>
         </div>
 
