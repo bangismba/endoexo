@@ -19,9 +19,9 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-semibold mb-2">Contact</h3>
           <ul className="text-gray-400 space-y-1">
-            <li>Email: <a href="mailto:info@endoxo.com" className="text-blue-500 hover:underline">info@endoxo.com</a></li>
-            <li>Phone: <a href="tel:+1234567890" className="text-blue-500 hover:underline">+1 234 567 890</a></li>
-            <li>Address: awaiting address UK</li>
+            <li>General enquiries<a href="mailto:info@endoxo.com" className="text-blue-500 hover:underline">info@endoxo.io</a></li>
+            <li>Investment enquiries<a href="mailto:info@endoxo.com" className="text-blue-500 hover:underline">invest@endoxo.io</a></li>
+            <li>Address: Endoexo LTD 3rd Floor, 86 - 90 Paul Street, London EC2A 4NE</li>
           </ul>
         </div>
 
