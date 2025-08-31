@@ -26,7 +26,7 @@ export default function Footer() {
         </div>
 
         {/* Social Links */}
-        <div>
+        {/* <div>
           <h3 className="text-xl font-semibold mb-2">Follow Us</h3>
           <div className="flex gap-4 mt-2">
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
@@ -39,7 +39,7 @@ export default function Footer() {
               <img src={TwitterIcon} alt="Twitter" className="w-6 h-6 hover:opacity-80 transition-opacity"/>
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </footer>
   );
